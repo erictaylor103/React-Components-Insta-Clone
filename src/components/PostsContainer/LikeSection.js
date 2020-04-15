@@ -8,8 +8,16 @@ import { faComment, faHeart } from '@fortawesome/free-regular-svg-icons'
 const LikeSection = props => {
   
   const [likes, setLikes] = useState(props.likes);
+  const [buttonClickedState, setButtonClickedState] = useState(false);
+
   const clickHandler = () => {
-    setLikes(likes + 1);
+    if (buttonClickedState) {
+      setLikes(likes - 1);
+      setButtonClickedState(false);
+    }else{
+      setLikes(likes + 1);
+      setButtonClickedState(true);
+    }
   }
 
 
